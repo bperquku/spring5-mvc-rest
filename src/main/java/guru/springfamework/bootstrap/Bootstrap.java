@@ -1,41 +1,47 @@
 package guru.springfamework.bootstrap;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 import guru.springfamework.domain.Category;
 import guru.springfamework.repositories.CategoryRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+/**
+ * Created by jt on 9/24/17.
+ */
 @Component
-public class Bootstrap implements CommandLineRunner {
-  private final CategoryRepository categoryRepository;
+public class Bootstrap implements CommandLineRunner{
 
-  public Bootstrap(CategoryRepository categoryRepository) {
-    this.categoryRepository = categoryRepository;
-  }
+    private CategoryRepository categoryRepository;
 
-  @Override
-  public void run(String... args) throws Exception {
-    Category fruits = new Category();
-    fruits.setName("Fruits");
+    public Bootstrap(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
 
-    Category dried = new Category();
-    dried.setName("Dried");
+    @Override
+    public void run(String... args) throws Exception {
+        Category fruits = new Category();
+        fruits.setName("Fruits");
 
-    Category fresh = new Category();
-    fresh.setName("Fresh");
+        Category dried = new Category();
+        dried.setName("Dried");
 
-    Category exotic = new Category();
-    exotic.setName("Exotic");
+        Category fresh = new Category();
+        fresh.setName("Fresh");
 
-    Category nuts = new Category();
-    nuts.setName("Nuts");
+        Category exotic = new Category();
+        exotic.setName("Exotic");
 
-    categoryRepository.save(fruits);
-    categoryRepository.save(dried);
-    categoryRepository.save(fresh);
-    categoryRepository.save(exotic);
-    categoryRepository.save(nuts);
+        Category nuts = new Category();
+        nuts.setName("Nuts");
 
-    System.out.println("Data Loaded = " + categoryRepository.count());
-  }
+        categoryRepository.save(fruits);
+        categoryRepository.save(dried);
+        categoryRepository.save(fresh);
+        categoryRepository.save(exotic);
+        categoryRepository.save(nuts);
+
+
+        System.out.println("Data Loaded = " + categoryRepository.count() );
+
+    }
 }

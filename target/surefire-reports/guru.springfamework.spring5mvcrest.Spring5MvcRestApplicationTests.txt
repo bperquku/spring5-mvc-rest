@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: guru.springfamework.spring5mvcrest.Spring5MvcRestApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.313 s - in guru.springfamework.spring5mvcrest.Spring5MvcRestApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.993 s - in guru.springfamework.spring5mvcrest.Spring5MvcRestApplicationTests

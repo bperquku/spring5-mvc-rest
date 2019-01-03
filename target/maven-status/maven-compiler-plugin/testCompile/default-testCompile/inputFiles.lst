@@ -1,4 +1,7 @@
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\api\v1\mapper\CategoryMapperTest.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\spring5mvcrest\Spring5MvcRestApplicationTests.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\services\CategoryServiceTest.java
+C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\services\CustomerServiceTest.java
+C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\controllers\v1\CustomerControllerTest.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\controllers\v1\CategoryControllerTest.java
+C:\Users\berat_p\GIT\spring5-mvc-rest\src\test\java\guru\springfamework\api\v1\mapper\CustomerMapperTest.java

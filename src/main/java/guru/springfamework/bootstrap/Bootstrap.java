@@ -1,47 +1,68 @@
 package guru.springfamework.bootstrap;
 
-import guru.springfamework.domain.Category;
-import guru.springfamework.repositories.CategoryRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import guru.springfamework.domain.Category;
+import guru.springfamework.domain.Customer;
+import guru.springfamework.repositories.CategoryRepository;
+import guru.springfamework.repositories.CustomerRepository;
 
-/**
- * Created by jt on 9/24/17.
- */
 @Component
-public class Bootstrap implements CommandLineRunner{
+public class Bootstrap implements CommandLineRunner {
 
-    private CategoryRepository categoryRepository;
+  private CategoryRepository categoryRepository;
+  private CustomerRepository customerRepository;
 
-    public Bootstrap(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+  public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository) {
+    this.categoryRepository = categoryRepository;
+    this.customerRepository = customerRepository;
+  }
 
-    @Override
-    public void run(String... args) throws Exception {
-        Category fruits = new Category();
-        fruits.setName("Fruits");
+  @Override
+  public void run(String... args) throws Exception {
+    loadCategories();
+    loadCustomers();
+  }
 
-        Category dried = new Category();
-        dried.setName("Dried");
+  private void loadCustomers() {
+	Customer customer1 = new Customer();
+    customer1.setId(1L);
+    customer1.setFirstName("John");
+    customer1.setLastName("Doe");
 
-        Category fresh = new Category();
-        fresh.setName("Fresh");
+    Customer customer2 = new Customer();
+    customer2.setId(2L);
+    customer2.setFirstName("Filan");
+    customer2.setLastName("Fisteku");
+    
+    customerRepository.save(customer1);
+    customerRepository.save(customer2);
 
-        Category exotic = new Category();
-        exotic.setName("Exotic");
+    System.out.println("Customer Data Loaded = " + customerRepository.count());
+  }
 
-        Category nuts = new Category();
-        nuts.setName("Nuts");
+  private void loadCategories() {
+    Category fruits = new Category();
+    fruits.setName("Fruits");
 
-        categoryRepository.save(fruits);
-        categoryRepository.save(dried);
-        categoryRepository.save(fresh);
-        categoryRepository.save(exotic);
-        categoryRepository.save(nuts);
+    Category dried = new Category();
+    dried.setName("Dried");
 
+    Category fresh = new Category();
+    fresh.setName("Fresh");
 
-        System.out.println("Data Loaded = " + categoryRepository.count() );
+    Category exotic = new Category();
+    exotic.setName("Exotic");
 
-    }
+    Category nuts = new Category();
+    nuts.setName("Nuts");
+
+    categoryRepository.save(fruits);
+    categoryRepository.save(dried);
+    categoryRepository.save(fresh);
+    categoryRepository.save(exotic);
+    categoryRepository.save(nuts);
+
+    System.out.println("Category Data Loaded = " + categoryRepository.count());
+  }
 }

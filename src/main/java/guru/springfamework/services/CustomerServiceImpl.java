@@ -73,7 +73,8 @@ public class CustomerServiceImpl implements CustomerService {
               if (customerDTO.getLastname() != null) {
                 customer.setLastname(customerDTO.getLastname());
               }
-              CustomerDTO returnDTO = customerMapper.customerToCustomerDTO(customerRepository.save(customer));
+              CustomerDTO returnDTO =
+                  customerMapper.customerToCustomerDTO(customerRepository.save(customer));
               returnDTO.setCustomerUrl("/api/v1/customers/" + customer.getId());
               return returnDTO;
             })
@@ -86,5 +87,10 @@ public class CustomerServiceImpl implements CustomerService {
     returnDTO.setCustomerUrl("/api/v1/customer/" + savedCustomer.getId());
 
     return returnDTO;
+  }
+
+  @Override
+  public void deleteCustomerById(Long id) {
+    customerRepository.deleteById(id);
   }
 }

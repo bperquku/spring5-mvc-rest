@@ -3,6 +3,8 @@ package guru.springfamework.services;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import java.util.Arrays;
 import java.util.List;
@@ -85,7 +87,7 @@ public class CustomerServiceTest {
     assertEquals(customerDTO.getLastname(), savedDTO.getLastname());
     assertEquals("/api/v1/customer/1", savedDTO.getCustomerUrl());
   }
-  
+
   @Test
   public void testUpdateCustomer() throws Exception {
     // given
@@ -100,11 +102,18 @@ public class CustomerServiceTest {
     when(customerRepository.save(any(Customer.class))).thenReturn(savedCustomer);
 
     // when
-    CustomerDTO savedDTO = customerService.saveCustomerByDTO(1L,customerDTO);
+    CustomerDTO savedDTO = customerService.saveCustomerByDTO(1L, customerDTO);
 
     // then
     assertEquals(customerDTO.getFirstname(), savedDTO.getFirstname());
     assertEquals(customerDTO.getLastname(), savedDTO.getLastname());
     assertEquals("/api/v1/customer/1", savedDTO.getCustomerUrl());
+  }
+
+  @Test
+  public void testDeleteCustomerById() throws Exception {
+    Long id = 1L;
+    customerRepository.deleteById(id);
+    verify(customerRepository, timeout(1)).deleteById(anyLong());
   }
 }

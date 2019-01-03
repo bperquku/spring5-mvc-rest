@@ -1,6 +1,7 @@
 package guru.springfamework.services;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import java.util.Arrays;
@@ -49,18 +50,39 @@ public class CustomerServiceTest {
 
   @Test
   public void testGetCustomerById() {
-	Customer customer = new Customer();
-	customer.setId(ID);
-	customer.setFirstName(FIRSTNAME);
-	customer.setLastName(LASTNAME);
-	
-	when(customerRepository.findById(anyLong())).thenReturn(Optional.of(customer));
-	
-	 // when
+    Customer customer = new Customer();
+    customer.setId(ID);
+    customer.setFirstname(FIRSTNAME);
+    customer.setLastname(LASTNAME);
+
+    when(customerRepository.findById(anyLong())).thenReturn(Optional.ofNullable(customer));
+    // when
     CustomerDTO customerDTO = customerService.getCustomerById(ID);
 
     // then
-    assertEquals(FIRSTNAME, customerDTO.getFirstName());
-    assertEquals(LASTNAME, customerDTO.getLastName());
+    assertEquals(FIRSTNAME, customerDTO.getFirstname());
+    assertEquals(LASTNAME, customerDTO.getLastname());
+  }
+
+  @Test
+  public void testCreateNewCustomer() throws Exception {
+    // given
+    CustomerDTO customerDTO = new CustomerDTO();
+    customerDTO.setFirstname("John");
+
+    Customer savedCustomer = new Customer();
+    savedCustomer.setFirstname(customerDTO.getFirstname());
+    savedCustomer.setLastname(customerDTO.getLastname());
+    savedCustomer.setId(1L);
+
+    when(customerRepository.save(any(Customer.class))).thenReturn(savedCustomer);
+
+    // when
+    CustomerDTO savedDTO = customerService.createNewCustomer(customerDTO);
+
+    // then
+    assertEquals(customerDTO.getFirstname(), savedDTO.getFirstname());
+    assertEquals(customerDTO.getLastname(), savedDTO.getLastname());
+    assertEquals("/api/v1/customer/1", savedDTO.getCustomerUrl());
   }
 }

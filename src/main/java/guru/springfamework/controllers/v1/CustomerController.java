@@ -16,8 +16,9 @@ import guru.springfamework.api.v1.model.CustomerListDTO;
 import guru.springfamework.services.CustomerService;
 
 @Controller
-@RequestMapping("/api/v1/customers")
+@RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
+  public static final String BASE_URL = "/api/v1/customers";
   private final CustomerService customerService;
 
   public CustomerController(CustomerService customerService) {

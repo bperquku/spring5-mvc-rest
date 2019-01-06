@@ -19,6 +19,7 @@ import guru.springfamework.bootstrap.Bootstrap;
 import guru.springfamework.domain.Customer;
 import guru.springfamework.repositories.CategoryRepository;
 import guru.springfamework.repositories.CustomerRepository;
+import guru.springfamework.repositories.VendorRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest // brings only repositories
@@ -26,7 +27,8 @@ public class CustomerServiceIT {
 
   @Autowired CustomerRepository customerRepository;
   @Autowired CategoryRepository categoryRepository;
-
+  @Autowired VendorRepository vendorRepository;
+  
   CustomerService customerService;
 
   @Before
@@ -34,7 +36,7 @@ public class CustomerServiceIT {
     System.out.println("Loading customer data");
     System.out.println("Customers: " + customerRepository.findAll().size());
 
-    Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository);
+    Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository,vendorRepository);
     bootstrap.run();
 
     customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);

@@ -1,8 +1,6 @@
 package guru.springfamework.controllers.v1;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,7 +17,7 @@ import guru.springfamework.services.CustomerService;
 
 @RestController
 @RequestMapping(CustomerController.BASE_URL)
-public class CustomerController {
+public class CustomerController{
   public static final String BASE_URL = "/api/v1/customers";
   private final CustomerService customerService;
 

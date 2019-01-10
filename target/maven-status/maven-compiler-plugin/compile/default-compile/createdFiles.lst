@@ -4,6 +4,7 @@ guru\springfamework\Spring5MvcRestApplication.class
 guru\springfamework\controllers\v1\CustomerController.class
 guru\springfamework\services\VendorServiceImpl.class
 guru\springfamework\api\v1\mapper\CategoryMapper.class
+guru\springfamework\config\SwaggerConfig.class
 guru\springfamework\controllers\RestResponseEntityExceptionHandler.class
 guru\springfamework\domain\Category.class
 guru\springfamework\api\v1\mapper\CategoryMapperImpl.class

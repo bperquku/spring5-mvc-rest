@@ -15,6 +15,7 @@ C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\bootstra
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\services\VendorServiceImpl.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\api\v1\model\VendorListDTO.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\controllers\v1\VendorController.java
+C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\config\SwaggerConfig.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\services\CategoryServiceImpl.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\api\v1\mapper\CustomerMapper.java
 C:\Users\berat_p\GIT\spring5-mvc-rest\src\main\java\guru\springfamework\controllers\RestResponseEntityExceptionHandler.java

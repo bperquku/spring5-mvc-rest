@@ -1,25 +1,23 @@
 githubNotify description: 'Building',  status: 'PENDING'
 
-checkout([
-		$class                           : 'GitSCM',
-		branches                         : [[name: '${githubBranch}']],
-		doGenerateSubmoduleConfigurations: false,
-		extensions                       : [],
-		submoduleCfg                     : [],
-		userRemoteConfigs                : [
-		[
-            credentialsId: 'e12e062f-60dd-457e-be4e-8e36c56b63dd',
-			url          : 'git@github.com:bperquku/spring5-mvc-rest.git'
-		]
-	]
-])
-                
 pipeline {
     agent any
     stages {
         stage('Checkout') {
-			script{
-			    checkout
+			steps{
+			    checkout([
+						$class                           : 'GitSCM',
+						branches                         : [[name: 'master']],
+						doGenerateSubmoduleConfigurations: false,
+						extensions                       : [],
+						submoduleCfg                     : [],
+						userRemoteConfigs                : [
+						[
+				            credentialsId: 'e12e062f-60dd-457e-be4e-8e36c56b63dd',
+							url          : 'git@github.com:bperquku/spring5-mvc-rest.git'
+						]
+					]
+				])
 			}
         }
         stage('Build') {

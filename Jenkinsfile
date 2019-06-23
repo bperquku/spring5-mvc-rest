@@ -1,6 +1,5 @@
 githubNotify description: 'Building',  status: 'PENDING'
-githubNotify account: 'bperquku', context: 'CI/CD', credentialsId: 'e12e062f-60dd-457e-be4e-8e36c56b63dd',
-    description: 'This is an example', repo: 'spring5-mvc-rest', sha: '0b5936eb903d439ac0c0bf84940d73128d5e9487',status: 'SUCCESS', targetUrl: 'https://http://ec2-3-91-62-19.compute-1.amazonaws.com:8080'
+githubNotify account: 'bperquku', context: 'CI/CD', credentialsId: 'e12e062f-60dd-457e-be4e-8e36c56b63dd',  description: 'This is an example', repo: 'spring5-mvc-rest', status: 'SUCCESS', targetUrl: 'https://http://ec2-3-91-62-19.compute-1.amazonaws.com:8080'
     
     
 pipeline {
